@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wordament</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <header>
+      Wordament
+    </header>
+    <p> This is the body of the app </p>
+    <%= form_tag(welcome_process_form_path) do %>
+        <%= label_tag(:word_string, "Enter the word you wish to translate") %>
+        <%= text_field_tag :user_input %>
+        <%= submit_tag 'click to translate', :id=> "submit" %>
+    <% end %>
+    <% unless @user_input.nil? %>
+    <%= "You entered #{@user_input}" %>
+    <% end %>
+
+</body>
+</html>
